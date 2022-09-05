@@ -1,12 +1,19 @@
 package br.com.alura.java.model;
 
+/**
+ * 
+ * @author Fabricio Rocha
+ *	Optei pela imutabilidade, por conta de que um filme dificilmente vai sofrer alguma alteração
+ *	nos seus dados ao longo do tempo.
+ */
+
 public class Movie {
 	private String title;
 	private String urlImage;
-	private Double rating;
-	private Integer year;
+	private String rating;
+	private String year;
 
-	public Movie(String title, String urlImage, Double rating, Integer year) {
+	public Movie(String title, String urlImage, String rating, String year) {
 		this.title = title;
 		this.urlImage = urlImage;
 		this.rating = rating;
@@ -24,12 +31,17 @@ public class Movie {
 		return urlImage;
 	}
 
-	public Double getRating() {
+	public String getRating() {
 		return rating;
 	}
 
-	public Integer getYear() {
+	public String getYear() {
 		return year;
+	}
+	
+	@Override
+	public String toString() {
+		return "Title: " + title + " Rating: " + rating;
 	}
 
 }
