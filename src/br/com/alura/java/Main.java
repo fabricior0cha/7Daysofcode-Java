@@ -1,6 +1,8 @@
 package br.com.alura.java;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.io.Writer;
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
@@ -30,8 +32,10 @@ public class Main {
 			movies.add(handleMovie(moviesArray[i]));
 		}
 		
-		movies.forEach(System.out::println);
-		
+		Writer writer = new PrintWriter("page.html");
+		HtmlGenerator hg = new HtmlGenerator(writer);
+		hg.generate(movies);
+		writer.close();
 	
 	}
 	
